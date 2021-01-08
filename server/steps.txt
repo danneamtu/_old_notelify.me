@@ -1,0 +1,22 @@
+MERN STEPS:
+1. create client and server directory
+
+A. CLIENT 
+Frontend setup: 
+1. npx create-react-app ./
+2. create index.js (this will be the page starter server)
+3. npm i axios moment react-file-base64 redux redux-thunk (install dependencies)
+4. delete src folder and create a new one
+5. create index.js (this is the file where we connect react with html file)
+6. create App.js with first component
+7. npm start
+
+B. SERVER 
+Backend setup:
+1. npm init -y (initialize a empty package .json)
+2. npm i body-parser cors express mongoose nodemon (install dependencies)
+3. in index.js import these dependencies (use import is more modern and easy to use than require, just add into package.json "type": module)
+4. into package.json add "type": module and in scripts property add "start": "nodemon index.js" (and delete "test":"...")
+
+5. initialize express const app = express()
+6. connect to db
