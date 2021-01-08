@@ -28,7 +28,7 @@ console.log(DB_USER)
 // @connecting to mongodb
 mongoose
   .connect(CONNECTION_URL, { useNewUrlParser: true, useUnifiedTopology: true })
-  .then(() => app.listen(PORT, () => console.log("server running")))
+  .then(() => app.listen(PORT, () => console.log("Perfect! server is running...")))
   .catch((err) => console.log(err.message))
 // don't get any warning into the console.
 mongoose.set("useFindAndModify", false)

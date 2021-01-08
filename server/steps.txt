@@ -19,4 +19,6 @@ Backend setup:
 4. into package.json add "type": module and in scripts property add "start": "nodemon index.js" (and delete "test":"...")
 
 5. initialize express const app = express()
-6. connect to db
+6. remove cors policy
+7. get mongodb connection and store credentials into .env file
+6. connect to mongo db
