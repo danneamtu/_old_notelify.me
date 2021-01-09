@@ -9,16 +9,21 @@ Frontend setup:
 4. delete src folder and create a new one
 5. create index.js (this is the file where we connect react with html file)
 6. create App.js with first component
-7. npm start
+7. yarn start or npm start
 
 B. SERVER 
 Backend setup:
 1. npm init -y (initialize a empty package .json)
 2. npm i body-parser cors express mongoose nodemon (install dependencies)
 3. in index.js import these dependencies (use import is more modern and easy to use than require, just add into package.json "type": module)
-4. into package.json add "type": module and in scripts property add "start": "nodemon index.js" (and delete "test":"...")
+4. into package.json add "type": module and 
+5. in scripts property add "start": "nodemon index.js" (and delete "test":"...")
 
-5. initialize express const app = express()
-6. remove cors policy
-7. get mongodb connection and store credentials into .env file
-6. connect to mongo db
+6. initialize express const app = express()
+7. remove cors policy
+8. get mongodb connection and store credentials into .env file
+9. connect to mongo db
+
+10. create routes folder
+11. create posts.js into routes folder
+12. create a Router and export routes

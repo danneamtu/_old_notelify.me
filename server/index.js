@@ -1,11 +1,14 @@
+import express from "express"
+import bodyParser from "body-parser"
+import mongoose from "mongoose"
 import cors from "cors"
 import dotenv from "dotenv"
-import express from "express"
-import mongoose from "mongoose"
-import bodyParser from "body-parser"
 
-// @initialize express
+import postRoutes from "./routes/posts.js"
+
 const app = express()
+app.use("/posts", postRoutes)
+
 app.use(bodyParser.json({ limit: "30mb", extended: true }))
 app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }))
 
@@ -18,7 +21,7 @@ app.use(function (req, res, next) {
 })
 app.use(cors({ origin: true }))
 
-// @config connection to mongodb
+// @config database
 dotenv.config()
 const { DB_USER, DB_PASSWORD, DB_ENDPOINT, DB_NAME } = process.env
 const CONNECTION_URL = `mongodb+srv://${DB_USER}:${DB_PASSWORD}@${DB_ENDPOINT}/${DB_NAME}?retryWrites=true&w=majority`
