@@ -9,8 +9,11 @@ export const getPosts = async (req, res) => {
   }
 }
 
+// data is not here from req
 export const createPost = async (req, res) => {
   const post = req.body
+  // const { title, message, selectedFile, creator, tags } = post
+
   // create a new object
   const newPost = new PostMessage(post)
   try {

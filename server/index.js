@@ -5,21 +5,18 @@ import cors from "cors"
 import dotenv from "dotenv"
 
 import postRoutes from "./routes/posts.js"
-
 const app = express()
-app.use("/posts", postRoutes)
-
-app.use(bodyParser.json({ limit: "30mb", extended: true }))
-app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }))
 
 // @remove cors error
-app.use(cors())
+app.use(cors({ origin: true }))
 app.use(function (req, res, next) {
   res.header("Access-Control-Allow-Origin", "*")
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept")
   next()
 })
-app.use(cors({ origin: true }))
+app.use(bodyParser.json({ limit: "50mb", extended: true }))
+app.use(bodyParser.urlencoded({ limit: "50mb", extended: true }))
+app.use("/posts", postRoutes)
 
 // @config database
 dotenv.config()

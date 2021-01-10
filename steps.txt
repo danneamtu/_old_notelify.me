@@ -5,11 +5,16 @@ A. CLIENT
 Frontend setup: 
 1. npx create-react-app ./
 2. create index.js (this will be the page starter server)
-3. npm i axios moment react-file-base64 redux redux-thunk (install dependencies)
+3. npm i axios moment react-file-base64 redux react-redux redux-thunk (install dependencies)
 4. delete src folder and create a new one
 5. create index.js (this is the file where we connect react with html file)
 6. create App.js with first component
 7. yarn start or npm start
+
+Redux:
+8. import redux, redux-thunk, react-redux 
+9. create store 
+10. import reducers
 
 B. SERVER 
 Backend setup:
