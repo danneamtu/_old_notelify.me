@@ -7,18 +7,16 @@ import Post from "./Post/Post"
 
 function Posts({ setCurrentId }) {
   const posts = useSelector((state) => state.posts)
-  console.log(posts)
   return (
     <>
-      <div>Posts</div>
       {!posts.length ? (
         <CircularProgress />
       ) : (
-        <Grid container alignItems="stretch">
-          {posts.map((post) => (
-            <Post setCurrentId={setCurrentId} item xs={12} key={post._id} post={post} />
-          ))}
-        </Grid>
+        posts.map((post) => (
+          <Grid sm={12} item xs={12} alignItems="stretch">
+            <Post setCurrentId={setCurrentId} key={post._id} post={post} />
+          </Grid>
+        ))
       )}
     </>
   )

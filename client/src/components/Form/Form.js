@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react"
 import FileBase from "react-file-base64"
-import { TextField, Button, Typography, Paper } from "@material-ui/core"
+import { TextField, TextareaAutosize, Button, Typography, Box, Paper } from "@material-ui/core"
 import { useDispatch, useSelector } from "react-redux"
 import { createPost, updatePost } from "../../actions/posts"
 
@@ -35,30 +35,31 @@ function Form({ currentId, setCurrentId }) {
 
   return (
     <form autoComplete="off" noValidate onSubmit={handleSubmit}>
-      <Typography variant="h4">
+      {/* <Typography variant="h6">
         {currentId ? "Edit " : "Add "}
         your note
-      </Typography>
-      <TextField name="creator" fullWidth label="creator" value={postData.creator} onChange={(e) => setPostData({ ...postData, creator: e.target.value })} />
+      </Typography> */}
+      {/* <TextField name="creator" fullWidth label="creator" value={postData.creator} onChange={(e) => setPostData({ ...postData, creator: e.target.value })} /> */}
       <TextField
-        name="title"
+        name="New note"
         fullWidth
-        label="title"
+        label="New note"
         value={postData.title}
         onChange={(e) => {
           console.log(e.target.value)
           setPostData({ ...postData, title: e.target.value })
         }}
       />
-      <TextField name="message" fullWidthvalue={postData.message} label="message" value={postData.message} onChange={(e) => setPostData({ ...postData, message: e.target.value })} />
-      <TextField name="tags" variant="outlined" fullWidthvalue={postData.tags} label="tags" value={postData.tags} onChange={(e) => setPostData({ ...postData, tags: e.target.value })} />
-      <FileBase type="file" multiple={false} onDone={({ base64 }) => setPostData({ ...postData, selectedFile: base64 })}></FileBase>
-      <Button color="secondary" size="large" type="submit" fullWidth>
-        {currentId ? "Edit post" : "Submit post"}
-      </Button>
-      <Button color="primary" variant="contained" size="large" onClick={clear} fullWidth>
-        clear
-      </Button>
+      <Box mt={3}>
+        <TextareaAutosize placeholder="Note" style={{ width: "100%" }} rowsMin={3} fullWidth name="message" label="message" value={postData.message} onChange={(e) => setPostData({ ...postData, message: e.target.value })} />
+      </Box>
+      <TextField fullWidth name="tags" label="tags" value={postData.tags} onChange={(e) => setPostData({ ...postData, tags: e.target.value })} />
+      {/* <FileBase type="file" multiple={false} onDone={({ base64 }) => setPostData({ ...postData, selectedFile: base64 })}></FileBase> */}
+      <Box mt={3}>
+        <Button variant="contained" color="primary" size="large" type="submit" fullWidth>
+          {currentId ? "Edit this note" : "Add this note"}
+        </Button>
+      </Box>
     </form>
   )
 }
